@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  database:
+    container_name: postgres
+    image: postgres:16.1-alpine
+    restart: always
+    hostname: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=andrey
+      - POSTGRES_USER=andrey
+
+  nats-streaming:
+    image: nats-streaming:latest
+    restart: always
+    container_name: nats-streaming
+    ports:
+      - 4222:4222
+      - 8222:8222
